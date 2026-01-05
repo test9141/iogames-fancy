@@ -1,6 +1,6 @@
 'use strict';
 
-window.addEventListener('load', function() {
+function chat() {
 	var msg1 = document.getElementById("msg2"); // Message input field
 	var nme1 = document.getElementById("nme2"); // Username input field
 	var log1 = document.getElementById("log2"); // Log container for messages
@@ -197,4 +197,4 @@ window.addEventListener('load', function() {
 		item.textContent = "<b>Your browser does not support WebSockets.</b>"; // Bold error message
 		appendLog(item); // Append the error message to the log
 	}
-});
+};
