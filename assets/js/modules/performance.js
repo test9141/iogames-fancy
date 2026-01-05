@@ -1,6 +1,6 @@
 'use strict';
 
-function backgrounds() {
+function performance() {
     // Good UI or faster version of site
     if (navigator.deviceMemory < 2 || performance.now() > 3000) {
       console.log("low memory: " + navigator.deviceMemory);
