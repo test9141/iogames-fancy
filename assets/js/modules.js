@@ -8,6 +8,6 @@ document.addEventListener('DOMContentLoaded', function() {
     customFeature();
     chat();
     draw();
-    performance();
+    perf();
     
 });
