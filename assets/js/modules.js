@@ -6,5 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     gifAutoload();
     buttons();
     customFeature();
+    chat();
+    draw();
     
 });
