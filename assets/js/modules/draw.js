@@ -1,6 +1,6 @@
-document.addEventListener('DOMContentLoaded', function() {
-  'use strict';
+'use strict';
 
+function chat() {
   let canvas = document.getElementsByClassName("whiteboard")[0];
   let context = canvas.getContext("2d");
   //let ws = new WebSocket("wss://" + "draw2.bzmb.eu" + "/ws");
@@ -199,7 +199,5 @@ document.addEventListener('DOMContentLoaded', function() {
       clientId: clientId
     });
   }
-
   const clientId = generateUniqueId(); // Assign once per session
-
-});
+};
