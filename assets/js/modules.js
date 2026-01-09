@@ -2,12 +2,13 @@
 
 document.addEventListener('DOMContentLoaded', function() {
 
+    buttons();
     backgrounds();
     gifAutoload();
-    buttons();
     customFeature();
-    chat();
+    //chat();
     draw();
     perf();
+    chatroom();
     
-});
+})

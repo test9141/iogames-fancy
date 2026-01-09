@@ -1,6 +1,6 @@
 'use strict';
 
-function chat() {
+function draw() {
   let canvas = document.getElementsByClassName("whiteboard")[0];
   let context = canvas.getContext("2d");
   //let ws = new WebSocket("wss://" + "draw2.bzmb.eu" + "/ws");
@@ -130,29 +130,63 @@ function chat() {
   canvas.addEventListener('touchcancel', onMouseUp, false);
   canvas.addEventListener('touchmove', throttle(onMouseMove, 10), false);
 
-  function onMouseDown(e){
+  /*function onMouseDown(e){
     drawing = true;
     current.x = e.clientX||e.touches[0].clientX;
     current.y = e.clientY||e.touches[0].clientY;
+  }*/
+
+  function onMouseDown(e) {
+    const rect = canvas.getBoundingClientRect();
+    drawing = true;
+    current.x = (e.clientX || e.touches[0].clientX) - rect.left;
+    current.y = (e.clientY || e.touches[0].clientY) - rect.top;
   }
 
-  function onMouseUp(e){
+  /*function onMouseUp(e){
     if (!drawing) { return; }
     drawing = false;
     drawLine(current.x, current.y, e.clientX||e.touches[0].clientX, e.clientY||e.touches[0].clientY, current.color, true, isErasing);
+  }*/
+
+  function onMouseUp(e) {
+    if (!drawing) return;
+    const rect = canvas.getBoundingClientRect();
+    const x = (e.clientX || e.touches[0].clientX) - rect.left;
+    const y = (e.clientY || e.touches[0].clientY) - rect.top;
+    drawLine(current.x, current.y, x, y, current.color, true, isErasing);
+    drawing = false;
   }
 
-  function onMouseMove(e){
+  /*function onMouseMove(e){
     if (!drawing) { return; }
     drawLine(current.x, current.y, e.clientX||e.touches[0].clientX, e.clientY||e.touches[0].clientY, current.color, true, isErasing);
     current.x = e.clientX||e.touches[0].clientX;
     current.y = e.clientY||e.touches[0].clientY;
+  }*/
+
+  function onMouseMove(e) {
+    if (!drawing) return;
+    const rect = canvas.getBoundingClientRect();
+    const x = (e.clientX || e.touches[0].clientX) - rect.left;
+    const y = (e.clientY || e.touches[0].clientY) - rect.top;
+    drawLine(current.x, current.y, x, y, current.color, true, isErasing);
+    current.x = x;
+    current.y = y;
   }
 
-  function onDrawingEvent(data){
+  /*function onDrawingEvent(data){
     var w = canvas.width;
     var h = canvas.height;
     drawLine(data.x0 * w, data.y0 * h, data.x1 * w, data.y1 * h, data.color, isErasing);
+  }*/
+
+  function onDrawingEvent(data) {
+    const x0 = data.x0 * canvas.width;
+    const y0 = data.y0 * canvas.height;
+    const x1 = data.x1 * canvas.width;
+    const y1 = data.y1 * canvas.height;
+    drawLine(x0, y0, x1, y1, data.color, false, isErasing);
   }
 
   function generateUniqueId() {
@@ -160,7 +194,7 @@ function chat() {
     return Math.floor(Math.random() * max);
   }
 
-  function drawLine(x0, y0, x1, y1, color, broadcast, isErasing){
+  /*function drawLine(x0, y0, x1, y1, color, broadcast, isErasing){
     context.beginPath();
     context.lineCap = 'round';
     context.lineJoin = 'round';
@@ -198,6 +232,56 @@ function chat() {
       color: color,
       clientId: clientId
     });
+  }*/
+
+  function drawLine(x0, y0, x1, y1, color, broadcast, isErasing) {
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+  
+    // Scale to match canvas resolution
+    const sx0 = x0 * scaleX;
+    const sy0 = y0 * scaleY;
+    const sx1 = x1 * scaleX;
+    const sy1 = y1 * scaleY;
+  
+    context.beginPath();
+    context.lineCap = 'round';
+    context.lineJoin = 'round';
+    context.moveTo(sx0, sy0);
+    context.lineTo(sx1, sy1);
+    context.strokeStyle = color;
+    context.lineWidth = isErasing ? 20 : 2;
+    context.shadowBlur = isErasing ? 0 : 20;
+    context.shadowColor = color;
+    context.globalCompositeOperation = isErasing ? 'destination-out' : 'source-over';
+    context.stroke();
+    context.closePath();
+
+    var w = canvas.width;
+    var h = canvas.height;
+    
+    /*if (broadcast) {
+      socket.emit('drawing', {
+        x0: sx0 / canvas.width,
+        y0: sy0 / canvas.height,
+        x1: sx1 / canvas.width,
+        y1: sy1 / canvas.height,
+        color,
+        isErasing
+      });
+    }*/
+
+    JSON.stringify({
+      type: isErasing ? 'erase' : 'drawing',
+      x0: sx0/ w,
+      y0: sy0 / h,
+      x1: sx1 / w,
+      y1: sy1 / h,
+      color: color,
+      clientId: clientId
+    });
   }
+
   const clientId = generateUniqueId(); // Assign once per session
 };

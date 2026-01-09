@@ -51,11 +51,24 @@ function backgrounds() {
         localStorage.setItem('lastBackground', videoKey); // Store the last clicked background
       }
     }
+
+    // Custom background
+    var cust = document.getElementById('url-background'); // Textbox
+    cust.addEventListener('input', () => {
+      const videoUrl = cust.value;
+      removeVideoBackground();
+      createVideoBackground(videoUrl);
+      localStorage.setItem('customBackground', videoUrl); // Store the last clicked background
+    });
     
     // Add event listeners to background elements
     const backgroundElements = document.querySelectorAll('.b1, .b2, .b3, .b4, .b5, .b6');
     backgroundElements.forEach(element => {
       element.addEventListener('click', changeBackground);
+      /*element.addEventListener('click', (event) => {
+        console.log('Element clicked:', element);
+        changeBackground(event);
+      });*/
     });
     
     // noBackground variable
@@ -71,13 +84,21 @@ function backgrounds() {
     rem.addEventListener('click', remchange);
     
     // Load the last clicked background on page load
-    const lastBackground = localStorage.getItem('lastBackground');
-    if (lastBackground && videoUrls[lastBackground]) {
-      createVideoBackground(videoUrls[lastBackground]);
-    } else if (noBackground) {
-      removeVideoBackground();
-    } else {
-      // If no last background is stored, load background 5
-      createVideoBackground(videoUrls['b5']);
-    }
+    window.addEventListener('load', () => {
+      const lastBackground = localStorage.getItem('lastBackground');
+      const noBackground = localStorage.getItem('noBackground');
+      const savedUrl = localStorage.getItem('customBackground');
+      if (savedUrl) {
+        const cust = document.getElementById('url-background');
+        cust.value = savedUrl; // Restore the textbox value
+        createVideoBackground(savedUrl); // Apply the background
+      } else if (lastBackground && videoUrls[lastBackground]) {
+        createVideoBackground(videoUrls[lastBackground]);
+      } else if (noBackground) {
+        removeVideoBackground();
+      } else {
+        // If no last background is stored, load background 5
+        createVideoBackground(videoUrls['b5']);
+      }
+    });
 };

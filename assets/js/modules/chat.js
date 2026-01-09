@@ -1,11 +1,12 @@
 'use strict';
 
-function chat() {
+function chat(wsName) {
 	var msg1 = document.getElementById("msg2"); // Message input field
 	var nme1 = document.getElementById("nme2"); // Username input field
 	var log1 = document.getElementById("log2"); // Log container for messages
 	var pick1 = document.getElementById("colorpicker2"); // Username's Colorpicker
 	var message1 = document.getElementById("message2");
+	let checkClose;
 	let conn;
 
 	// Function to generate a random color
@@ -110,21 +111,32 @@ function chat() {
 		return false;
 	};
 
+	console.log(wsName);
+	
 	// Check if the browser supports WebSocket
 	if (window["WebSocket"]) {
 		function establishConnection() {
 			// Establish a WebSocket connection to the server
-			conn = new WebSocket("wss://" + "chat.bzmb.eu" + "/chatroom1");
-
+			conn = new WebSocket(wsName);
+			//conn.close();
+			
 			// Event handler when open
 			conn.onopen = function(evt) {
-				console.log("%c Connection established to chat", "color: lightgreen");
+				console.log("%c Connection established to chat " + wsName, "color: lightgreen");
 			};
 			// Event handler for when the WebSocket connection is closed
 			conn.onclose = function(evt) {
-				console.log("%c Connection closed, reconnecting...", "color: red");
-				setTimeout(reconnect, 2000); // Reconnect after a delay
+				if (checkClose) {
+					console.log("%c Connection permanently closed: " + wsName, "color: orange");
+					//kill chat();
+				}
+				else {
+					console.log("%c Connection closed, reconnecting " + wsName, "color: red");
+					setTimeout(reconnect, 2000); 
+					//setTimeout(() => reconnect(wsName), 2000); // Reconnect after a delay
+				}
 			};
+
 			// Event handler for when a message is received from the server
 			conn.onmessage = function(evt) {
 				try {
@@ -185,12 +197,25 @@ function chat() {
 		// Function to reconnect
 		function reconnect() {
 			console.log('Reconnecting...');
-			establishConnection(); // Attempt to reconnect
+			establishConnection(wsName); // Attempt to reconnect
 			var reconnectDelay = 2000; // Increase delay for next attempt
 		}
-
+		
+		function closeChat(wsName) {
+			console.log("closing test-2:" + wsName);
+			checkClose = true;
+			conn.close();
+			/*for (const url in conn) {
+				conn.close();
+				//delete conn;
+			}*/
+		}
+		
+		// Make available globally
+		window.closeChat = closeChat;
+		
 		// Establish the initial connection
-		establishConnection();
+		establishConnection(wsName);
 	} else {
 		// If WebSockets are not supported by the browser, display an error message
 		var item = document.createElement("div");

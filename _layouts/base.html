@@ -2,236 +2,220 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-	{% include header.html %}
+        {% include header.html %}
         <meta property="og:type" content="website">
-        <meta property="og:site_name" content="IOGames.fun">
+        <meta property="og:site_name" content="anarchychats.com">
         <title>𝗔𝗡𝗔𝗥𝗖𝗛𝗬 𝗖𝗛𝗔𝗧</title>
-        <meta name="description" content="Anarchy Chat, Made by Lorenzino, Mr. iogames and more in TKR, is a mod for the chatbox on the website iogames.fun. this turns it into one big chat site! including: Enchanced chat, Animated Backgrounds, an alternate chat, and more!">
+        <meta name="description" content="Anarchy Chat, 
+            Made by Lorenzino, Mr. iogames and more in TKR, 
+            is a mod for the chatbox on the website iogames.fun. 
+            this turns it into one big chat site! including: 
+            Enchanced chat, Animated Backgrounds, an alternate chat, and more!">
         <meta property="og:title" content="Anarchy chat - A chat and game site with minimal rules">
-        <meta property="og:description" content="Anarchy Chat, Made by Lorenzino, Mr. iogames and more in TKR, is a mod for the chatbox on the website iogames.fun. this turns it into one big chat site! including: Enchanced chat, Animated Backgrounds, an alternate chat, and more!">
-        <meta property="og:url" content="https://iogames.fun/">
-        <link rel="canonical" href="https://iogames.fun/">
+        <meta property="og:description" content="Anarchy Chat, Made by Lorenzino, 
+            Mr. iogames and more in TKR, is a mod for the chatbox on the website 
+            iogames.fun. this turns it into one big chat site! including: 
+            Enchanced chat, Animated Backgrounds, an alternate chat, and more!">
+        <meta property="og:url" content="https://anarchychats.com/">
+        <link rel="canonical" href="https://anarchychats.com/">
     </head>
-    <body><video id="video-background" autoplay="" loop="" style="opacity: 0.6;"><source src="https://cdn.pixabay.com/video/2021/10/10/91562-629172467_large.mp4" type="video/mp4"></video>
+    <body><video id="video-background" autoplay="" loop="" style="opacity: 0.6;"><source src="https://cdn.pixabay.com/video/2022/09/20/131973-751915246_large.mp4" type="video/mp4"></video>
         
-        <div class="secondLayer" id="secLayer">
-            <div id="secondChatServer" class="chatalt3 blur active">
-                <div class="item" style="scrollbar-color: transparent rgba(255, 255, 255, 0);scrollbar-width: none;height: 100%;">
-                    <iframe src="https://www3.cbox.ws/box/?boxid=3545430&amp;boxtag=KK9MuO" width="100%" height="450" allowtransparency="yes" allow="autoplay" frameborder="0" marginheight="0" marginwidth="0" scrolling="auto" style="position;height: 100%;"></iframe>
+        
+        <div class="main" id="gridLayer">
+        <nav class="blur" id="navbar" style="">
+            <div class="logo desktop opac" id="logo-style">
+                <div class="logo-top menu list" style="grid-area: logo-top;display: flex;align-items: flex-end; padding-left: 0.50rem;">
+                    {% include logo.html %}
+            		<span class="anarchychats titleName" style="color: white;">AnarchyChats</span><span class="com titleName" style="color: #ff9999;">.com</span>
+                    </a>
+                </div>
+                <div class="logo-below" style="grid-area: logo-bottom;display: flex;align-items: flex-start; padding-left: 0.50rem;">
+                    <span class="subtext subTitleName" style="color: grey;">By Lorenzino, mr.iogames, and more</span>
                 </div>
             </div>
-                {{ content }}            
-        </div>
-        <div class="desktop" id="gridLayer">
-            <nav class="blur" id="navbar" style="">
-                <div class="logo desktop opac" id="logoStyle"><div class="logo-top menu list" style="grid-area: logo-top;display: flex;align-items: flex-end;">
-		{% include logo.html %}
-		<span class="iogames titleName" style="color: white;">AnarchyChats</span><span class="fun titleName" style="color: #ffcc00;">.com</span></a></div><div class="logo-below" style="grid-area: logo-bottom;display: flex;align-items: flex-start;"><span class="subtext subTitleName" style="color: grey;">By Lorenzino, mr.iogames, and more</span></div></div>
-                <div class="button list opac" style="z-index: 0;height: 50px;display: flex;flex-direction: row;align-items: center;margin: 0;padding: 0;white-space: nowrap;">
-                    <a class="item navButton desktopButton" href="#" title="" id="gamePageButton">
-                        <i class="fa fa-gamepad" style="font-weight: 600;padding: 0.75rem 1rem; font-size:28px;font-style: normal; display: block;"></i>
+            <div class="logo-image" id="logo-image">
+                {% include image.html %}
+            </div>
+        </nav>
+            
+            <div class="sidebar blur" style="grid-area: sidebar; z-index: 3; overflow: scroll;">
+                <div class="button list opac" style="z-index: 0;height: 50px;
+                    display: flex;flex-direction: column;align-items: center;margin: 0;padding: 0;
+                    white-space: nowrap;">
+                    <a id="game-page-btn" class="item nav-button desktop-button">
+                        <i class="ti ti-device-gamepad" style="font-weight: 600;
+                            padding: 0.50rem; font-size:28px;font-style: normal; display: block;"></i>
                     </a>
-                    <a class="item navButton desktopButton" href="#" title="" id="firstDrawButton">
-                        <i class="fa fa-pen" style="font-weight: 600;padding: 0.75rem 1rem; font-size:28px;font-style: normal; display: block;"></i>
+                    <a id="draw-page-btn" class="item nav-button desktop-button">
+                        <i class="ti ti-pencil" style="font-weight: 600;
+                            padding: 0.50rem; font-size:28px;font-style: normal; display: block;"></i>
                     </a>
-                    <a class="item navButton desktopButton" href="#" title="" id="secondChatButton">
-                        <i class="fa fa-comment" style="font-weight: 500;padding: 0.75rem 1rem; font-size: 28px; font-style: normal; display: block;"></i>
+                    <a id="chat-page-btn" class="item nav-button desktop-button">
+                        <i class="ti ti-message" style="font-weight: 500;
+                            padding: 0.50rem; font-size: 28px; font-style: normal; display: block;"></i>
                     </a>
-                    <a class="item navButton desktopButton" href="#" title="" id="toggleButtonSidebarDesktop">
-                        <i class="fa fa-bars" style="font-weight: 600; padding: 0.75rem 1rem; font-size: 28px; font-style: normal; display:block;"></i>
+                    <a id="block-page-btn" class="item nav-button desktop-button">
+                        <i class="ti ti-forbid-2" style="font-weight: 600; 
+                            padding: 0.50rem; font-size: 28px; font-style: normal; display:block;"></i>
                     </a>
-                    <a class="item navButton mobileButton" href="#" title="" id="secondChatButtonMobile">
-                    <i class="fa fa-comment" style="font-weight: 500;"></i>
-                </a>
-                <a class="item navButton mobileButton" href="#" id="toggleButtonFullscreen">
-                    <i class="fa fa-expand"></i>
-                </a>
-                <a class="item navButton mobileButton" href="#" title="" id="toggleButtonChat">
-                    <i class="far fa-comments"></i>
-                </a>
-                <a class="item navButton mobileButton" href="#" title="" id="toggleButtonSidebar">
-                    <i class="fa fa-bars" style="font-weight: 600;"></i>
-                </a>
+                    <a id="music-page-btn" class="item nav-button desktop-button">
+                        <i class="ti ti-music" style="font-weight: 600; 
+                            padding: 0.50rem; font-size: 28px; font-style: normal; display:block;"></i>
+                    </a>
+                    <a id="background-page-btn" class="item nav-button desktop-button">
+                        <i class="ti ti-polaroid" style="font-weight: 500;
+                            padding: 0.50rem; font-size: 28px; font-style: normal; display: block;"></i>
+                    </a>
+                    <a id="dm-page-btn" class="item nav-button desktop-button">
+                        <i class="ti ti-messages" style="font-weight: 500;
+                            padding: 0.50rem; font-size: 28px; font-style: normal; display: block;"></i>
+                    </a>
+                    <a id="voicechat-page-btn" class="item nav-button desktop-button">
+                        <i class="ti ti-microphone" style="font-weight: 500;
+                            padding: 0.50rem; font-size: 28px; font-style: normal; display: block;"></i>
+                    </a>
+                    <a id="fullscreen-btn" class="item nav-button desktop-button">
+                        <i class="ti ti-arrows-maximize" style="font-weight: 500;
+                            padding: 0.50rem; font-size: 28px; font-style: normal; display: block;"></i>
+                    </a>
+                </div>                
+            </div>
+            
+            <div class="mid" style="grid-area: mid; z-index: 0;">
+                <!-- background page -->
+                <div id="background-page" class="background-page" style="position: absolute;">
+                    <div class="sidebars">
+                        <div class="header">Anarchy Chat</div>
+                        <div class="backgroundstyles">
+                            <li>
+                                <p class="b1" id="hoverButton">Background 1</p>
+                            </li>
+                            <li>
+                                <p class="b2" id="hoverButton">Background 2</p>
+                            </li>
+                            <li>
+                                <p class="b3" id="hoverButton">Background 3</p>
+                            </li>
+                            <li>
+                                <p class="b4" id="hoverButton">Background 4</p>
+                            </li>
+                            <li>
+                                <p class="b5" id="hoverButton">Background 5</p>
+                            </li>
+                            <li>
+                                <p class="b6" id="hoverButton">Background 6</p>
+                            </li>
+                            <li>
+                                <p class="rem" id="hoverButton">No Background</p>
+                            </li>
+                            <li>
+                                <p class="cust">
+                                    <textarea id="url-background" placeholder="Background URL" style="color: white; background-color: transparent;
+                            			padding: 0px;"></textarea>
+                                </p>
+                            </li>
+                        </div>
+                    </div>
                 </div>
-            </nav>
-            <div class="sidebar" style="grid-area: sidebar;z-index: 3;">
-                <div class="chats">
-                    <div class="chatalt" style="scrollbar-color: transparent rgba(255, 255, 255, 0);scrollbar-width: none;">
-                        <div class="item blur minnit" style="scrollbar-color: transparent rgba(255, 255, 255, 0);scrollbar-width: none;">
-                            <div id="chat2">
-                                <form id="message2" style="
-    display: grid;
-    grid-template-areas:
-        &quot;input button&quot;;
-    grid-template-columns: 1fr auto;
-    grid-template-rows: 48px;
-    height: 48px;
-">
-                                    <input type="text" id="msg2" placeholder="Message" size="58" autofocus="">
-                                    <i type="submit" id="send2" value="Send" style="background-color: transparent;color: white;padding: 1rem;width: 53.33px;" class="fa fa-lg fa-paper-plane"></i>
-                                </form>
-                                <div id="log2"></div>
-                                <form id="name2" style="
-    display: grid;
-    grid-template-areas:
-        &quot;input button&quot;;
-    grid-template-columns: 1fr auto;
-    grid-template-rows: 48px;
-    height: 48px;
-">
-                                    <input type="text" id="nme2" placeholder="Name" size="58" autofocus="">
-                                    <div id="colorpicker2" style="color: rgb(50, 22, 200); padding: 1rem; width: 53.33px;" class="fa fa-lg fa-palette"></div>
-                                </form>
+                <!-- end -->
+
+                <!-- block page -->
+                <div id="block-page" class="block-page" style="position: absolute;">
+                    <div style="padding: 1.5rem 1rem 0.5rem 1rem;">
+                        <div class="sidebars blocksidebar">
+                            <div class="item">
+                                <input type="color" id="usernameColorPicker" class="mobileblock colorPickerClass">
+                            </div>
+                            <div class="item">
+                                <div class="mobileblock blockedUsersListClass all">Blocked Users:</div>
+                            </div>
+                            <div class="item">
+                                <input type="text" placeholder="Block user" class="mobileblock blockInputClass" style="width: 200px;">
+                            </div>
+                            <div class="item">
+                                <input type="text" placeholder="Unblock user" class="mobileblock unblockInputClass" style="width: 200px;">
+                            </div>
+                            <div class="item">
+                                <button class="mobileblock unblockAllButtonClass">Unblock All</button>
                             </div>
                         </div>
                     </div>
-                    <p></p>
                 </div>
-            </div>
-            <div class="mid" style="
-    grid-area: mid;
-    z-index: 0;
-">
-                <div class="middle" style="
-    height: 100%;
-    width: 100%;
-">
-                    <div class="draw drawClass active" id="firstDrawServer" style="scrollbar-color: transparent rgba(255, 255, 255, 0);scrollbar-width: none;/* left: 330px; top: 50px; */width: 100%;height: 100%;z-index: 1;px;transition: bottom 0.35s ease;position: relative;">
-                        <canvas class="whiteboard" width="904" height="730" style="
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 1;
-"></canvas>
-                        <div class="colors" style="
-    z-index: 2;
-">
-                            <div class="colorpicker-draw" style="background-color: rgb(57, 168, 210); border-color: rgba(0, 0, 0, 0.17); border-width: thick; z-index: 2; border-style: solid;"></div>
+                <!-- end -->
+
+                <!-- chat page -->
+                <div id="chat-page" class="chat-page active" style="position: absolute;">
+					<div id="chatroom-btns-page" style="width: 100%; position: absolute; height: 100%;" class="chatroom-btns-page active">
+						<div style="padding: 1.5rem 1rem 0.5rem 1rem;list-style: none; left: 0px;" id="chatroom-btns" class="chatroom-btns"></div>
+					</div>
+					<div id="chatroom" class="chatroom">
+                        <div id="chat2" class="chat2" style="position: absolute;top: 0px;left: 0px;width: 100%;">
+                            <form id="message2" style="display: grid;grid-template-areas:&quot;input button&quot;;grid-template-columns: 1fr auto;grid-template-rows: 48px;height: 48px;">
+                                <input type="text" id="msg2" placeholder="Message" size="58">
+                                <i type="submit" id="send2" value="Send" style="background-color: transparent;color: white;padding: 1rem;width: 53.33px; font-weight: 600; padding: 0.50rem; font-size: 28px; font-style: normal; display: block;" class="ti ti-send"></i>
+                            </form>
+                            <div id="log2"></div>
+							<form id="name2" style="display: grid;grid-template-areas:&quot;back input button&quot;;grid-template-columns: auto 1fr auto;grid-template-rows: 48px;height: 48px;">
+								<div id="backarrow" style="padding: 0.5rem; font-size: 28px;" class="ti ti-logout backarrow hoverButton"></div>
+                                <input type="text" id="nme2" placeholder="Name" size="58">
+                                <div id="colorpicker2" style="color: rgb(151, 190, 136); width: 53.33px; font-weight: 600; padding: 0.5rem; font-size: 28px; font-style: normal; display: block;" class="ti ti-palette"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- end -->
+                
+                <!-- draw page -->
+                <div id="draw-page" class="draw-page" style="position: absolute;">
+                    <div class="draw drawClass active" id="firstDrawServer" style="
+                        scrollbar-color: transparent rgba(255, 255, 255, 0);
+                        scrollbar-width: none;/* left: 330px; top: 50px; */
+                        width: 100%;height: 100%;z-index: 1px;transition: bottom 0.35s ease;
+                        position: relative;">
+                        <canvas class="whiteboard" width="678" height="730" style="
+                            position: fixed; left: 0; top: 0; z-index: 1;"></canvas>
+                        <div class="colors" style="z-index: 2;">
+                            <div class="colorpicker-draw" style="background-color: rgb(151, 190, 136); border-color: rgba(0, 0, 0, 0.17); border-width: thick; z-index: 2; border-style: solid;"></div>
                             <!-- <i class="fa fa-eraser" id="eraser"></i> -->
-                            <button id="wipe" class="blur" style="font-family: 'Exo 2';border-width: 2px;border-style: solid;border: 1px solid rgba(255, 255, 255, 0.15);border-radius: 5px;/* background-color: transparent; */z-index: 2;">Wipe Whiteboard</button>
-                        </div>
-                    </div>
-<div class="sidebars">
-				<div class="item opac">
-					<div class="desktopblock blockedUsersListClass all">Blocked Users:</div>
-				</div>
-				<div class="item opac">
-					<input type="text" placeholder="Block user" class="desktopblock blockInputClass">
-				</div>
-				<div class="item opac">
-					<input type="text" placeholder="Unblock user" class="desktopblock unblockInputClass">
-				</div>
-				<div class="item opac">
-					<button class="desktopblock unblockAllButtonClass">Unblock All</button>
-				</div>
-				<div class="item opac">
-					<input type="color" id="usernameColorPicker" class="desktopblock colorPickerClass">
-				</div>
-			</div>
-			{% include image.html %}
-                    <div class="foot opac" style="opacity: 100%;">
-                        https://anarchychats.com<br>inspired by iogames.fun
-                    </div>
-                </div>
-            </div>
-            <div class="rsidebar" id="thirdChatStyle">
-                <div class="chatalt2" style="scrollbar-color: transparent rgba(255, 255, 255, 0);scrollbar-width: none;top: 50px;">
-                    <div class="item minnit blur" id="thirdChatServer" style="scrollbar-color: transparent rgba(255, 255, 255, 0);scrollbar-width: none;">
-                        <div id="chat3">
-                            <form id="message3" style="
-    display: grid;
-    grid-template-areas:
-        &quot;input button&quot;;
-    grid-template-columns: 1fr auto;
-    grid-template-rows: 48px;
-    height: 48px;
-">
-                                <input type="text" id="msg3" placeholder="Message" size="58" autofocus="">
-                                <i type="submit" id="send3" value="Send" style="background-color: transparent;color: white;padding: 1rem;width: 53.33px;" class="fa fa-lg fa-paper-plane"></i>
-                            </form>
-                            <div id="log3"></div>
-                            <form id="name3" style="
-    display: grid;
-    grid-template-areas:
-        &quot;input button&quot;;
-    grid-template-columns: 1fr auto;
-    grid-template-rows: 48px;
-    height: 48px;
-">
-                                <input type="text" id="nme3" placeholder="Name" size="58" autofocus="" style="
-    grid-area: input;
-">
-                                <i id="colorpicker3" style="color: rgb(50, 22, 200); grid-area: button; width: 53.33px; padding: 1rem;" class="fa fa-lg fa-palette"></i>
-                            </form>
+                            <button id="wipe" class="blur" style="border-width: 2px;border-style: solid;border: 1px solid rgba(255, 255, 255, 0.15);border-radius: 5px;/* background-color: transparent; */z-index: 2;">Wipe Whiteboard</button>
                         </div>
                     </div>
                 </div>
-            </div>
+                <!-- end -->
+                
+                <!-- game page -->
+                <div id="game-page" class="game-page" style="position: absolute;">
+                    {{ content }}
+                </div>
+                <!-- end -->
+                
+                <!-- music page -->
+                <div id="music-page" class="music-page" style="position: absolute;">
+                    <div style="padding: 1.5rem 1rem 0.5rem 1rem;">
+                        <div class="music-player">
+                            <div class="track-name" id="trackName">Track Name</div>
+                            <div class="buttons">
+                                <i id="playPauseBtn" class="fa fa-lg fa-pause" style="padding-right: 10px; 
+                                    padding-left: 10px;"></i>
+                            </div>
+                            <input type="range" id="seekSlider" min="0" max="100" value="0">
+                            <div class="time">
+                            <span id="currentTime">05:48</span> / <span id="totalDuration">00:00</span>
+                            </div>
+                            <input type="range" id="volumeSlider" min="0" max="100" value="80">
+                        </div>
+                        <audio id="audioPlayer" src="https://www.learningcontainer.com/wp-content/uploads/2020/02/Kalimba.mp3"></audio>
+                        <textarea id="url-music" placeholder="Music URL" style="color: white; 
+                            background-color: transparent; padding: 0px;"></textarea>
+                    </div>
+                </div>
+                <!-- end -->
+            </div>            
         </div>
-        <aside id="sidebars" class="blur" style="
-    position: fixed;
-    transition: left 0.25s ease;
-">
-            <div class="sidebars">
-                <div class="header">Anarchy Chat
-				</div>
-                <div class="backgroundstyles">
-    <li>
-                    <p class="b1" id="hoverButton">Background 1
-					</p>
-    </li>
-<li>
-    <p class="b2" id="hoverButton">Background 2
-					</p>
-    </li>
-<li>
-    <p class="b3" id="hoverButton">Background 3
-					</p>
-    </li>
-<li>
-    <p class="b4" id="hoverButton">Background 4
-					</p>
-    </li>
-<li>
-    <p class="b5" id="hoverButton">Background 5
-					</p>
-    </li>
-<li>
-    <p class="b6" id="hoverButton">Background 6
-					</p>
-    </li>
-<li>
-    <p class="rem" id="hoverButton">No Background
-					</p>
-    </li>
-                </div>
-                <!-- Blocking feature -->
-                <div class="sidebars blocksidebar">
-                    <div class="item">
-                        <div class="mobileblock blockedUsersListClass all">Blocked Users:</div>
-                    </div>
-                    <div class="item">
-                        <input type="text" placeholder="Block user" class="mobileblock blockInputClass">
-                    </div>
-                    <div class="item">
-                        <input type="text" placeholder="Unblock user" class="mobileblock unblockInputClass">
-                    </div>
-                    <div class="item">
-                        <button class="mobileblock unblockAllButtonClass">Unblock All</button>
-                    </div>
-                    <div class="item">
-                        <input type="color" id="usernameColorPicker" class="mobileblock colorPickerClass">
-                    </div>
-                </div>
-            </div>
-        </aside>
         
-        
-<div class="performanceMode" id="performanceMode">
-<div style="display: inline;">Performance Mode Activated!</div>
-<span></span><i class="fa fa-leaf" style="display: inline;"></i>
-</div>
-    
-
-
+        <div class="performance-mode" id="performance-mode">
+        <div style="display: inline;">Performance Mode Activated!</div>
+        <span></span><i class="fa fa-leaf" style="display: inline;"></i>
+        </div>
 </body></html>
