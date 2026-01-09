@@ -10,5 +10,6 @@ document.addEventListener('DOMContentLoaded', function() {
     draw();
     perf();
     chatroom();
-    
+    music();
+
 })
