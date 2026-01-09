@@ -33,12 +33,12 @@ function customFeature() {
     playPauseBtn.addEventListener('click', () => {
       if (audio.paused) {
         audio.play();
-        playPauseBtn.classList.remove("fa-play");
-        playPauseBtn.classList.add("fa-pause");
+        playPauseBtn.classList.remove("ti-player-play");
+        playPauseBtn.classList.add("ti-player-pause");
       } else {
         audio.pause();
-        playPauseBtn.classList.remove("fa-pause");
-        playPauseBtn.classList.add("fa-play");      
+        playPauseBtn.classList.remove("ti-player-pause");
+        playPauseBtn.classList.add("ti-player-play");      
       }
     });
 
@@ -58,8 +58,8 @@ function customFeature() {
       trackName.textContent = getDomain(musicUrl); // website name as song name
       audio.src = musicUrl;
       audio.play();
-      playPauseBtn.classList.remove("fa-play");
-      playPauseBtn.classList.add("fa-pause");
+      playPauseBtn.classList.remove("ti-player-play");
+      playPauseBtn.classList.add("ti-player-pause");
     });
 
     // Time updater
